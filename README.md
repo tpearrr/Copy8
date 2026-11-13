@@ -3,12 +3,22 @@
 Cronologia degli appunti per macOS. Una scorciatoia (di default ⇧⌘V) apre una finestra con tutto quello
 che hai copiato negli ultimi giorni, dal più recente al più vecchio, con ricerca full text.
 
-## Compilare e installare
+## Installare
 
-Servono macOS 14 o successivo e gli strumenti da riga di comando di Xcode (`xcode-select --install`).
+Scarica `Copy8-<versione>.dmg` dalla pagina Releases, aprilo e trascina Copy8 in Applicazioni. Serve macOS 14
+o successivo.
+
+Copy8 non è firmata con un certificato Apple Developer né autenticata da Apple, quindi al primo avvio macOS
+la blocca. Vai in Impostazioni di Sistema › Privacy e sicurezza e scegli "Apri comunque" accanto a Copy8.
+In alternativa, dal Terminale: `xattr -dr com.apple.quarantine /Applications/Copy8.app`.
+
+## Compilare
+
+Servono gli strumenti da riga di comando di Xcode (`xcode-select --install`).
 
 ```bash
 scripts/build-app.sh             # crea build/Copy8.app
+scripts/build-app.sh --dmg       # crea anche build/Copy8-<versione>.dmg
 scripts/build-app.sh --install   # la copia anche in /Applications
 ```
 
